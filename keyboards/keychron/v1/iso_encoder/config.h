@@ -24,3 +24,6 @@
 
 /* Enable caps-lock LED */
 #define CAPS_LOCK_LED_INDEX 44
+
+#define ENABLE_RGB_MATRIX_ALPHAS_MODS
+#define ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
