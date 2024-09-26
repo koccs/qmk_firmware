@@ -3,7 +3,7 @@ RGB_MATRIX_EFFECT(gaming_effect)
 #ifdef RGB_MATRIX_CUSTOM_EFFECT_IMPLS
 
 uint8_t calculateColorWithBrightness(uint8_t color, uint8_t brightness, uint8_t factor) {
-    return color * (brightness / factor) / 255;
+    return color * (brightness / factor) / 256;
 }
 
 static bool gaming_effect(effect_params_t* params) {
@@ -40,7 +40,7 @@ static bool gaming_effect(effect_params_t* params) {
     67, // M
   };
   for (uint8_t i = 0; i < sizeof(letterButtons) / sizeof(letterButtons[0]); i++) {
-    rgb_matrix_set_color(letterButtons[1], calculateColorWithBrightness(255, brightness, 3), calculateColorWithBrightness(192, brightness, 3), 0);
+    rgb_matrix_set_color(letterButtons[i], calculateColorWithBrightness(255, brightness, 3), calculateColorWithBrightness(128, brightness, 3), 0);
   }
 
   uint8_t numberButtons[] = {
@@ -52,7 +52,7 @@ static bool gaming_effect(effect_params_t* params) {
     20, // 5
   };
   for (uint8_t i = 0; i < sizeof(numberButtons) / sizeof(numberButtons[0]); i++) {
-    rgb_matrix_set_color(numberButtons[1], 0, calculateColorWithBrightness(22, brightness, 3), calculateColorWithBrightness(255, brightness, 3));
+    rgb_matrix_set_color(numberButtons[i], 0, calculateColorWithBrightness(22, brightness, 3), calculateColorWithBrightness(255, brightness, 3));
   }
 
   uint8_t modifierButtons[] = {
@@ -62,7 +62,7 @@ static bool gaming_effect(effect_params_t* params) {
     75, // Alt
   };
   for (uint8_t i = 0; i < sizeof(modifierButtons) / sizeof(modifierButtons[0]); i++) {
-    rgb_matrix_set_color(modifierButtons[1], calculateColorWithBrightness(11, brightness, 3), calculateColorWithBrightness(255, brightness, 3), 0);
+    rgb_matrix_set_color(modifierButtons[i], 0, calculateColorWithBrightness(255, brightness, 3), 0);
   }
 
   rgb_matrix_set_color(34, calculateColorWithBrightness(255, brightness, 3), 0, calculateColorWithBrightness(255, brightness, 3)); // R
